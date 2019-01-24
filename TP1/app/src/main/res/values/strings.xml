@@ -1,12 +1,22 @@
 <resources>
     <string name="app_name">TP1</string>
 
-    <!-- String for activity_main.xml  -->
+    <!-- String for activity_create.xml  -->
 
     <string name="textView_register">Register your book</string>
     <string name="editText_name">Name of the book</string>
+    <string name="textView_name">Name of the book *</string>
     <string name="editText_author">Author of the book</string>
     <string name="editText_date">Release date</string>
     <string name="button_register">Create</string>
+
+    <!-- String for activity_list.xml  -->
+
+    <string name="button_add">Add a book</string>
+
+    <!-- String for CreationActivity.java : Option 3
+    PS : On utilise &#160; pour avoir un espace à la fin d'un string...-->
+
+    <string name="toast">Creation : Success\nName of the book : &#160;</string>
 
 </resources>

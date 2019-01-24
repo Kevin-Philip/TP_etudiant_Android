@@ -8,7 +8,7 @@
     android:paddingTop="20dp"
     android:paddingRight="20dp"
     android:paddingBottom="20dp"
-    tools:context=".MainActivity">
+    tools:context=".CreateActivity">
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -35,8 +35,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
                 android:layout_centerVertical="true"
-                android:text="@string/editText_name"
+                android:text="@string/textView_name"
                 android:textSize="18sp" />
 
             <EditText
@@ -44,7 +45,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentRight="true"
-                android:hint="@string/editText_name" />
+                android:layout_alignParentEnd="true"
+                android:hint="@string/editText_name"
+                android:inputType="text" />
         </RelativeLayout>
 
         <RelativeLayout
@@ -59,6 +62,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
                 android:layout_centerVertical="true"
                 android:text="@string/editText_author"
                 android:textSize="20sp" />
@@ -68,7 +72,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentRight="true"
-                android:hint="@string/editText_author" />
+                android:layout_alignParentEnd="true"
+                android:hint="@string/editText_author"
+                android:inputType="text" />
         </RelativeLayout>
 
         <RelativeLayout
@@ -83,6 +89,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
                 android:layout_centerVertical="true"
                 android:text="@string/editText_date"
                 android:textSize="20sp" />
@@ -92,7 +99,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentRight="true"
-                android:hint="@string/editText_date" />
+                android:layout_alignParentEnd="true"
+                android:hint="@string/editText_date"
+                android:inputType="datetime" />
         </RelativeLayout>
 
 
