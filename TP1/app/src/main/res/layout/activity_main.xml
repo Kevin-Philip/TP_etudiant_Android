@@ -1,20 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:paddingLeft="20dp"
+    android:paddingTop="20dp"
+    android:paddingRight="20dp"
+    android:paddingBottom="20dp"
     tools:context=".MainActivity">
 
     <RelativeLayout
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0">
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true">
 
         <TextView
             android:id="@+id/textView_register"
@@ -24,37 +23,88 @@
             android:text="@string/textView_register"
             android:textSize="18sp" />
 
-        <EditText
-            android:id="@+id/editText_name"
-            android:layout_width="wrap_content"
+        <RelativeLayout
+            android:id="@+id/linear_name"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/textView_register"
-            android:layout_centerHorizontal="true"
-            android:text="@string/editText_name" />
+            android:layout_marginTop="30dp">
 
-        <EditText
-            android:id="@+id/editText_author"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/editText_name"
-            android:layout_centerHorizontal="true"
-            android:text="@string/editText_author" />
+            <TextView
+                android:id="@+id/textView_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_centerVertical="true"
+                android:text="@string/editText_name"
+                android:textSize="18sp" />
 
-        <EditText
-            android:id="@+id/editText_date"
-            android:layout_width="wrap_content"
+            <EditText
+                android:id="@+id/editText_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:hint="@string/editText_name" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/linear_author"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/editText_author"
-            android:layout_centerHorizontal="true"
-            android:text="@string/editText_date" />
+            android:layout_below="@+id/linear_name"
+            android:layout_marginTop="20dp">
+
+            <TextView
+                android:id="@+id/textView_author"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_centerVertical="true"
+                android:text="@string/editText_author"
+                android:textSize="20sp" />
+
+            <EditText
+                android:id="@+id/editText_author"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:hint="@string/editText_author" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/linear_date"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/linear_author"
+            android:layout_marginTop="20dp">
+
+            <TextView
+                android:id="@+id/textView_date"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_centerVertical="true"
+                android:text="@string/editText_date"
+                android:textSize="20sp" />
+
+            <EditText
+                android:id="@+id/editText_date"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:hint="@string/editText_date" />
+        </RelativeLayout>
+
 
         <Button
             android:id="@+id/button_register"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/editText_date"
+            android:layout_below="@+id/linear_date"
             android:layout_centerHorizontal="true"
+            android:layout_marginTop="30dp"
             android:text="@string/button_register" />
+
     </RelativeLayout>
 
-</android.support.constraint.ConstraintLayout>
+</RelativeLayout>
