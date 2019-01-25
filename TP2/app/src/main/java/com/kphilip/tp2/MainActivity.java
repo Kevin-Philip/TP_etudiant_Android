@@ -18,34 +18,47 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        // On récupère nos éléments
         final Button play_button = findViewById(R.id.button_play);
         final Button stop_button = findViewById(R.id.button_stop);
 
-        String fileName = "/sample.mp3";
-        String url = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS).getAbsolutePath() + fileName;
+        // On disable le bouton stop au départ
+        stop_button.setEnabled(false);
 
+        // On récupère le path du son
+        String fileName = "/sample.mp3";
+        final String url = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS).getAbsolutePath() + fileName;
+        Log.d("MainActivity", "The url is : "+url);
+
+        // On créer notre media player
         final MediaPlayer mediaPlayer = new MediaPlayer();
         mediaPlayer.setAudioStreamType(AudioManager.STREAM_MUSIC);
 
         try {
             mediaPlayer.setDataSource(url);
-            mediaPlayer.setLooping(true); // On loop pour pouvoir vérifier que le bouton stop fonctionne
-            mediaPlayer.prepare();
+            Log.d("MainActivity", "MP is ready to prepare");
         } catch (IOException e) {
-            Log.d("MainActivity", "Bug with datasource URL");
+            Log.d("MainActivity", "Bug with datasource URL. The file must be in downloads directory");
             e.printStackTrace();
         }
 
-        // On disable le bouton stop au départ
-        stop_button.setEnabled(false);
-
+        // On loop pour pouvoir vérifier que le bouton stop fonctionne
+        mediaPlayer.setLooping(true);
 
         play_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                try {
+                    mediaPlayer.prepare();
+                    Log.d("MainActivity", "MP is prepared");
+                } catch (IOException e) {
+                    e.printStackTrace();
+                    Log.d("MainActivity", "MP : Fail prepare");
+                }
                 mediaPlayer.start();
                 stop_button.setEnabled(true);
                 play_button.setEnabled(false);
+                Log.d("MainActivity", "MP is playing");
             }
         });
 
