@@ -13,6 +13,8 @@ import java.io.IOException;
 
 public class MainActivity extends AppCompatActivity {
 
+    MediaPlayer mediaPlayer;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -28,10 +30,10 @@ public class MainActivity extends AppCompatActivity {
         // On récupère le path du son
         String fileName = "/sample.mp3";
         final String url = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS).getAbsolutePath() + fileName;
-        Log.d("MainActivity", "The url is : "+url);
+        Log.d("MainActivity", "The url is : " + url);
 
         // On créer notre media player
-        final MediaPlayer mediaPlayer = new MediaPlayer();
+        mediaPlayer = new MediaPlayer();
         mediaPlayer.setAudioStreamType(AudioManager.STREAM_MUSIC);
 
         try {
@@ -48,17 +50,17 @@ public class MainActivity extends AppCompatActivity {
         play_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                try {
-                    mediaPlayer.prepare();
-                    Log.d("MainActivity", "MP is prepared");
-                } catch (IOException e) {
-                    e.printStackTrace();
-                    Log.d("MainActivity", "MP : Fail prepare");
-                }
-                mediaPlayer.start();
-                stop_button.setEnabled(true);
-                play_button.setEnabled(false);
-                Log.d("MainActivity", "MP is playing");
+
+                mediaPlayer.prepareAsync();
+                mediaPlayer.setOnPreparedListener(new MediaPlayer.OnPreparedListener() {
+                    @Override
+                    public void onPrepared(MediaPlayer mp) {
+                        mediaPlayer.start();
+                        stop_button.setEnabled(true);
+                        play_button.setEnabled(false);
+                        Log.d("MainActivity", "MP is playing");
+                    }
+                });
             }
         });
 
@@ -71,6 +73,12 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+    }
+
+    @Override
+    protected void onDestroy() {
+        mediaPlayer.release();
+        super.onDestroy();
     }
 
 
