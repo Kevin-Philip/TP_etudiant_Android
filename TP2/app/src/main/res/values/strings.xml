@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">TP2</string>
+
+    <!-- String for activity_main.xml -->
+
+    <string name="play_button">Play</string>
+    <string name="stop_button">Stop</string>
+</resources>
